@@ -1,0 +1,107 @@
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\SessionManagement.Admin.exe
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\SessionManagement.Admin.deps.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\SessionManagement.Admin.runtimeconfig.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\SessionManagement.Admin.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\SessionManagement.Admin.pdb
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\BCrypt.Net-Next.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.AspNetCore.SignalR.Client.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.AspNetCore.SignalR.Common.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.Extensions.Features.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.Extensions.Logging.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.Extensions.Options.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.Extensions.Primitives.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\SessionManagement.Shared.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\SessionManagement.Shared.pdb
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.csproj.AssemblyReference.cache
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\App.g.cs
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin_MarkupCompile.cache
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.g.resources
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.GeneratedMSBuildEditorConfig.editorconfig
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.AssemblyInfoInputs.cache
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.AssemblyInfo.cs
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.csproj.CoreCompileInputs.cache
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.sourcelink.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionM.5E9EBC00.Up2Date
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\refint\SessionManagement.Admin.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.pdb
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.genruntimeconfig.cache
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\ref\SessionManagement.Admin.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\DashboardWindow.baml
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\LoginWindow.baml
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\DashboardWindow.g.cs
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\LoginWindow.g.cs
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\App.baml
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\BillingOverviewWindow.baml
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\BillingOverviewWindow.g.cs
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SecurityAlertsWindow.baml
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SecurityAlertsWindow.g.cs
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\CustomerFormWindow.baml
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\CustomersWindow.baml
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\CustomerFormWindow.g.cs
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\CustomersWindow.g.cs
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\AlertCenterWindow.baml
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\AlertCenterWindow.g.cs
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\LogViewerWindow.baml
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\LogViewerWindow.g.cs
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\SessionManagement.Admin.exe
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\SessionManagement.Admin.deps.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\SessionManagement.Admin.runtimeconfig.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\SessionManagement.Admin.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\SessionManagement.Admin.pdb
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\BCrypt.Net-Next.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.Extensions.Features.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\SessionManagement.Shared.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\bin\Debug\net9.0-windows\SessionManagement.Shared.pdb
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.csproj.AssemblyReference.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\AlertCenterWindow.baml
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\BillingOverviewWindow.baml
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\CustomerFormWindow.baml
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\CustomersWindow.baml
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\DashboardWindow.baml
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\LoginWindow.baml
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\LogViewerWindow.baml
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SecurityAlertsWindow.baml
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\App.baml
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\AlertCenterWindow.g.cs
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\BillingOverviewWindow.g.cs
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\CustomerFormWindow.g.cs
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\CustomersWindow.g.cs
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\DashboardWindow.g.cs
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\LoginWindow.g.cs
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\LogViewerWindow.g.cs
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SecurityAlertsWindow.g.cs
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\App.g.cs
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin_MarkupCompile.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.g.resources
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.AssemblyInfoInputs.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.AssemblyInfo.cs
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.csproj.CoreCompileInputs.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionM.5E9EBC00.Up2Date
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\refint\SessionManagement.Admin.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.pdb
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.genruntimeconfig.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\ref\SessionManagement.Admin.dll

@@ -1,0 +1,25 @@
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Shared\bin\Debug\net9.0\SessionManagement.Shared.deps.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Shared\bin\Debug\net9.0\SessionManagement.Shared.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Shared\bin\Debug\net9.0\SessionManagement.Shared.pdb
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.csproj.AssemblyReference.cache
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.AssemblyInfoInputs.cache
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.AssemblyInfo.cs
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.csproj.CoreCompileInputs.cache
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.sourcelink.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\refint\SessionManagement.Shared.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.pdb
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\ref\SessionManagement.Shared.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\bin\Debug\net9.0\SessionManagement.Shared.deps.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\bin\Debug\net9.0\SessionManagement.Shared.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\bin\Debug\net9.0\SessionManagement.Shared.pdb
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.csproj.AssemblyReference.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.AssemblyInfoInputs.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.AssemblyInfo.cs
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.csproj.CoreCompileInputs.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\refint\SessionManagement.Shared.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.pdb
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\ref\SessionManagement.Shared.dll

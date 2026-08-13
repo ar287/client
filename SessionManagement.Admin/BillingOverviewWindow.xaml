@@ -1,0 +1,111 @@
+<Window x:Class="SessionManagement.Admin.BillingOverviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Billing Overview — Admin Panel"
+        Height="800" Width="1000"
+        WindowStartupLocation="CenterScreen"
+        FontFamily="Segoe UI"
+        Background="#ECF0F5">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- HEADER -->
+        <Border Grid.Row="0" Background="#1B2E4B">
+            <StackPanel VerticalAlignment="Center" Margin="28,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="💰  " FontSize="20" Foreground="White" VerticalAlignment="Center"/>
+                    <TextBlock Text="Billing Overview" FontSize="20" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                </StackPanel>
+                <TextBlock Text="Monitor all revenue and session payments" FontSize="12" Foreground="#90B4D4" Margin="0,4,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Margin="22" Background="White" CornerRadius="12">
+            <Border.Effect>
+                <DropShadowEffect Color="#BBC8D8" BlurRadius="15" ShadowDepth="2" Opacity="0.2"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" Background="#F7FAFC" CornerRadius="12,12,0,0" Padding="16,0">
+                    <TextBlock Text="System Billing Ledger" VerticalAlignment="Center" FontWeight="Bold" Foreground="#1B2E4B"/>
+                </Border>
+
+                <!-- ADVANCED FILTERS -->
+                <Grid Grid.Row="1" Background="White" Margin="10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="60"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Search -->
+                    <Border Grid.Column="0" Margin="5,10" BorderBrush="#C8D6E5" BorderThickness="1" CornerRadius="8" Background="#F7FAFC">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="35"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="🔍" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0.5"/>
+                            <TextBox x:Name="SearchBox" Grid.Column="1" VerticalContentAlignment="Center" BorderThickness="0" Background="Transparent" Padding="5,0" TextChanged="Filter_Changed"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Start Date -->
+                    <Border Grid.Column="1" Margin="5,10" BorderBrush="#C8D6E5" BorderThickness="1" CornerRadius="8" Background="#F7FAFC">
+                        <DatePicker x:Name="StartDatePicker" VerticalContentAlignment="Center" BorderThickness="0" Background="Transparent" SelectedDateChanged="Filter_Changed"/>
+                    </Border>
+
+                    <!-- End Date -->
+                    <Border Grid.Column="2" Margin="5,10" BorderBrush="#C8D6E5" BorderThickness="1" CornerRadius="8" Background="#F7FAFC">
+                        <DatePicker x:Name="EndDatePicker" VerticalContentAlignment="Center" BorderThickness="0" Background="Transparent" SelectedDateChanged="Filter_Changed"/>
+                    </Border>
+
+                    <!-- Status Filter -->
+                    <Border Grid.Column="3" Margin="5,10" BorderBrush="#C8D6E5" BorderThickness="1" CornerRadius="8" Background="#F7FAFC">
+                        <ComboBox x:Name="StatusFilter" VerticalContentAlignment="Center" BorderThickness="0" Background="Transparent" SelectionChanged="Filter_Changed">
+                            <ComboBoxItem Content="All Status" IsSelected="True"/>
+                            <ComboBoxItem Content="Paid Only"/>
+                            <ComboBoxItem Content="Unpaid Only"/>
+                        </ComboBox>
+                    </Border>
+
+                    <!-- Refresh Icon -->
+                    <Button Grid.Column="4" Content="🔄" FontSize="18" Margin="5,10" BorderThickness="0" Background="#F7FAFC" Cursor="Hand" Click="Refresh_Click"/>
+                </Grid>
+
+                <ListView x:Name="BillingListView" Grid.Row="2" BorderThickness="0">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding SessionId}"/>
+                            <GridViewColumn Header="User" Width="180" DisplayMemberBinding="{Binding FullName}"/>
+                            <GridViewColumn Header="Minutes" Width="100" DisplayMemberBinding="{Binding TotalMinutesDisplay}"/>
+                            <GridViewColumn Header="Rate" Width="120" DisplayMemberBinding="{Binding RateDisplay}"/>
+                            <GridViewColumn Header="Total" Width="120" DisplayMemberBinding="{Binding TotalAmountDisplay}"/>
+                            <GridViewColumn Header="Date" Width="180" DisplayMemberBinding="{Binding GeneratedAt}"/>
+                            <GridViewColumn Header="Status" Width="120" DisplayMemberBinding="{Binding PaidDisplay}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+                <Border Grid.Row="3" Background="#F7FAFC" CornerRadius="0,0,12,12" Padding="16,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock x:Name="RecordCountText" Text="0 records found" VerticalAlignment="Center" Margin="0,0,20,0" Foreground="#5A6A7E"/>
+                        <Button Content="Close" Width="100" Height="36" Style="{StaticResource AdminPrimaryButtonStyle}" Click="Close_Click"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

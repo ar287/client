@@ -1,0 +1,11 @@
+Terminal 1 — Server:
+cd SessionManagement.Server
+dotnet run
+
+Terminal 2 — Admin:
+cd SessionManagement.Admin
+dotnet run
+
+Terminal 3 — Client:
+cd SessionManagement.Client
+dotnet run

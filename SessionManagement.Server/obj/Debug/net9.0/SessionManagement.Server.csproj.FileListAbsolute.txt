@@ -1,0 +1,141 @@
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\appsettings.Development.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\appsettings.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Server.staticwebassets.runtime.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Server.staticwebassets.endpoints.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Server.exe
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Server.deps.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Server.runtimeconfig.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Server.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Server.pdb
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Azure.Core.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Azure.Identity.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\BCrypt.Net-Next.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.Identity.Client.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\System.Memory.Data.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\System.Net.WebSockets.WebSocketProtocol.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\System.Runtime.Caching.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Shared.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Shared.pdb
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.csproj.AssemblyReference.cache
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.AssemblyInfoInputs.cache
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.AssemblyInfo.cs
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.csproj.CoreCompileInputs.cache
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.MvcApplicationPartsAssemblyInfo.cache
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.sourcelink.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\scopedcss\bundle\SessionManagement.Server.styles.css
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\staticwebassets.build.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\staticwebassets.development.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionM.1FEC0ABF.Up2Date
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\refint\SessionManagement.Server.dll
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.pdb
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.genruntimeconfig.cache
+C:\xampp\htdocs\cs619-fall-2025-fyps\faisal awan new final project client\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\ref\SessionManagement.Server.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\appsettings.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Server.staticwebassets.runtime.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Server.staticwebassets.endpoints.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Server.exe
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Server.deps.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Server.runtimeconfig.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Server.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Server.pdb
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Azure.Core.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Azure.Identity.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\BCrypt.Net-Next.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.Identity.Client.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\System.Memory.Data.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\System.Runtime.Caching.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Shared.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\bin\Debug\net9.0\SessionManagement.Shared.pdb
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.csproj.AssemblyReference.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.AssemblyInfoInputs.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.AssemblyInfo.cs
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.csproj.CoreCompileInputs.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\scopedcss\bundle\SessionManagement.Server.styles.css
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionM.1FEC0ABF.Up2Date
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\refint\SessionManagement.Server.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.pdb
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.genruntimeconfig.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\ref\SessionManagement.Server.dll
