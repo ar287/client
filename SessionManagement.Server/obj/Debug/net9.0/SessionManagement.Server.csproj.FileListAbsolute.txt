@@ -139,3 +139,4 @@ C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Serv
 C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.pdb
 C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.genruntimeconfig.cache
 C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\ref\SessionManagement.Server.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Server\obj\Debug\net9.0\SessionManagement.Server.sourcelink.json

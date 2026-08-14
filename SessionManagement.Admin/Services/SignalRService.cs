@@ -13,6 +13,7 @@ namespace SessionManagement.Admin.Services
         public event Action<int, int, int, decimal>?      OnSessionEnded;
         public event Action<string, string, string>?      OnSecurityAlert;
         public event Action<string>?                      OnConnectionStatusChanged;
+        public event Action<string, int, int, string, int, decimal>? OnExtensionRequested;
 
         public bool IsConnected =>
             _connection?.State == HubConnectionState.Connected;
@@ -60,6 +61,15 @@ namespace SessionManagement.Admin.Services
                 (alertType, message, severity) =>
                 {
                     OnSecurityAlert?.Invoke(alertType, message, severity);
+                }
+            );
+
+            // Listen for session extension requests from customers
+            _connection.On<string, int, int, string, int, decimal>(
+                "ExtensionRequested",
+                (requestId, sessionId, userId, customerName, minutes, amount) =>
+                {
+                    OnExtensionRequested?.Invoke(requestId, sessionId, userId, customerName, minutes, amount);
                 }
             );
 
@@ -120,6 +130,26 @@ namespace SessionManagement.Admin.Services
             {
                 await _connection.InvokeAsync(
                     "SendWarningToCustomer", userId, message);
+            }
+        }
+
+        // Admin approves session extension
+        public async Task ApproveExtensionAsync(string requestId, int sessionId, int userId, int minutes)
+        {
+            if (_connection != null && IsConnected)
+            {
+                await _connection.InvokeAsync(
+                    "ApproveExtension", requestId, sessionId, userId, minutes);
+            }
+        }
+
+        // Admin rejects session extension
+        public async Task RejectExtensionAsync(string requestId, int sessionId, int userId, string reason)
+        {
+            if (_connection != null && IsConnected)
+            {
+                await _connection.InvokeAsync(
+                    "RejectExtension", requestId, sessionId, userId, reason);
             }
         }
 

@@ -255,5 +255,53 @@ namespace SessionManagement.Server.Services
             command.Parameters.AddWithValue("@Description", description);
             await command.ExecuteNonQueryAsync();
         }
+
+        // Extend an active session's allocated time
+        public async Task<bool> ExtendSessionAsync(int sessionId, int additionalMinutes)
+        {
+            try
+            {
+                using var connection = new SqlConnection(_connectionString);
+                await connection.OpenAsync();
+
+                string query = @"
+                    UPDATE Sessions
+                    SET AllocatedMinutes = AllocatedMinutes + @AdditionalMinutes,
+                        RemainingMinutes = RemainingMinutes + @AdditionalMinutes
+                    WHERE SessionId = @SessionId AND Status = 'Active'";
+
+                using var command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@AdditionalMinutes", additionalMinutes);
+                command.Parameters.AddWithValue("@SessionId", sessionId);
+
+                int rowsAffected = await command.ExecuteNonQueryAsync();
+                if (rowsAffected > 0)
+                {
+                    // Fetch UserId for logging
+                    string selectUser = "SELECT UserId FROM Sessions WHERE SessionId = @SessionId";
+                    using var userCmd = new SqlCommand(selectUser, connection);
+                    userCmd.Parameters.AddWithValue("@SessionId", sessionId);
+                    var userIdObj = await userCmd.ExecuteScalarAsync();
+                    if (userIdObj != null && userIdObj != DBNull.Value)
+                    {
+                        int userId = Convert.ToInt32(userIdObj);
+                        await LogEventAsync(
+                            connection,
+                            userId,
+                            sessionId,
+                            "SessionStart",
+                            $"Session extended by {additionalMinutes} minutes upon payment confirmation."
+                        );
+                    }
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[ExtendSession] Error: {ex.Message}");
+                return false;
+            }
+        }
     }
 }

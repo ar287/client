@@ -23,3 +23,4 @@ C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shar
 C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\refint\SessionManagement.Shared.dll
 C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.pdb
 C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\ref\SessionManagement.Shared.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Debug\net9.0\SessionManagement.Shared.sourcelink.json

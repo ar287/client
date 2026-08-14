@@ -69,16 +69,12 @@ namespace SessionManagement.Admin
 
         private async Task ConnectSignalRAsync()
         {
-            _signalRService.OnSessionStarted
-                += OnSessionStarted;
-            _signalRService.OnTimerUpdated
-                += OnTimerUpdated;
-            _signalRService.OnSessionEnded
-                += OnSessionEnded;
-            _signalRService.OnConnectionStatusChanged
-                += OnConnectionChanged;
-            _signalRService.OnSecurityAlert
-                += OnSecurityAlert;
+            _signalRService.OnSessionStarted   += OnSessionStarted;
+            _signalRService.OnTimerUpdated     += OnTimerUpdated;
+            _signalRService.OnSessionEnded     += OnSessionEnded;
+            _signalRService.OnSecurityAlert    += OnSecurityAlert;
+            _signalRService.OnExtensionRequested += OnExtensionRequested;
+            _signalRService.OnConnectionStatusChanged += OnConnectionChanged;
 
             await _signalRService.ConnectAsync();
         }
@@ -275,6 +271,47 @@ namespace SessionManagement.Admin
                     $"[{severity}] {alertType} — {message}");
                 SetStatus(
                     $"Security alert: {alertType} ({severity})");
+            });
+        }
+
+        private void OnExtensionRequested(
+            string requestId, int sessionId, int userId, string customerName, int minutes, decimal amount)
+        {
+            Dispatcher.Invoke(async () =>
+            {
+                AddAlert($"💳 EXTENSION REQUEST — {customerName} (Session #{sessionId}) | +{minutes} min | Amount: Rs. {amount:F2}");
+                SetStatus($"Extension request from {customerName} (+{minutes}m)");
+
+                MessageBoxResult result = MessageBox.Show(
+                    $"Customer '{customerName}' is requesting a session extension:\n\n" +
+                    $"➕ Additional Time: {minutes} minutes\n" +
+                    $"💵 Amount Due: Rs. {amount:F2}\n\n" +
+                    $"Has the customer paid cash / confirmed payment?",
+                    "Confirm Payment & Approve Extension",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question
+                );
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    // Approve extension on server and notify customer
+                    bool apiSuccess = await _apiService.ExtendSessionAsync(sessionId, minutes);
+                    if (apiSuccess)
+                    {
+                        await _signalRService.ApproveExtensionAsync(requestId, sessionId, userId, minutes);
+                        AddAlert($"✅ APPROVED — Extension for {customerName} (+{minutes}m)");
+                        await RefreshActiveSessionsAsync();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to extend session in database.", "Server Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    await _signalRService.RejectExtensionAsync(requestId, sessionId, userId, "Payment not confirmed by Admin.");
+                    AddAlert($"❌ REJECTED — Extension for {customerName}");
+                }
             });
         }
 

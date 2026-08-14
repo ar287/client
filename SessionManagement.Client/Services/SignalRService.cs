@@ -11,6 +11,8 @@ namespace SessionManagement.Client.Services
         public event Action<string>?  OnWarningReceived;
         public event Action<string>?  OnSessionTerminated;
         public event Action<string>?  OnConnectionStatusChanged;
+        public event Action<string, int, int>? OnExtensionApproved;
+        public event Action<string, int, string>? OnExtensionRejected;
 
         public bool IsConnected =>
             _connection?.State == HubConnectionState.Connected;
@@ -32,6 +34,18 @@ namespace SessionManagement.Client.Services
             _connection.On<string>("SessionTerminated", (reason) =>
             {
                 OnSessionTerminated?.Invoke(reason);
+            });
+
+            // Handle extension approved
+            _connection.On<string, int, int>("ExtensionApproved", (requestId, sessionId, minutes) =>
+            {
+                OnExtensionApproved?.Invoke(requestId, sessionId, minutes);
+            });
+
+            // Handle extension rejected
+            _connection.On<string, int, string>("ExtensionRejected", (requestId, sessionId, reason) =>
+            {
+                OnExtensionRejected?.Invoke(requestId, sessionId, reason);
             });
 
             // Handle reconnection
@@ -113,6 +127,18 @@ namespace SessionManagement.Client.Services
                 await _connection.InvokeAsync(
                     "NotifySessionEnded",
                     userId, sessionId, totalMinutes, totalAmount
+                );
+            }
+        }
+
+        // Request session extension from admin
+        public async Task RequestExtensionAsync(string requestId, int sessionId, int userId, string customerName, int minutes, decimal amount)
+        {
+            if (_connection != null && IsConnected)
+            {
+                await _connection.InvokeAsync(
+                    "RequestExtension",
+                    requestId, sessionId, userId, customerName, minutes, amount
                 );
             }
         }

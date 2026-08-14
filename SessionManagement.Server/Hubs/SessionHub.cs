@@ -112,5 +112,37 @@ namespace SessionManagement.Server.Hubs
                 message
             );
         }
+
+        // Customer requests session extension (Payment pending)
+        public async Task RequestExtension(string requestId, int sessionId, int userId, string customerName, int minutes, decimal amount)
+        {
+            Console.WriteLine($"[SignalR] Extension requested — User: {customerName} ({userId}), Session: {sessionId}, +{minutes}m (Rs. {amount})");
+            await Clients.Group("Admins").SendAsync(
+                "ExtensionRequested",
+                requestId, sessionId, userId, customerName, minutes, amount
+            );
+        }
+
+        // Admin approves session extension request
+        public async Task ApproveExtension(string requestId, int sessionId, int userId, int minutes)
+        {
+            Console.WriteLine($"[SignalR] Extension approved by Admin — User: {userId}, Session: {sessionId}, +{minutes}m");
+            string groupName = $"Customer_{userId}";
+            await Clients.Group(groupName).SendAsync(
+                "ExtensionApproved",
+                requestId, sessionId, minutes
+            );
+        }
+
+        // Admin rejects session extension request
+        public async Task RejectExtension(string requestId, int sessionId, int userId, string reason)
+        {
+            Console.WriteLine($"[SignalR] Extension rejected by Admin — User: {userId}, Session: {sessionId}");
+            string groupName = $"Customer_{userId}";
+            await Clients.Group(groupName).SendAsync(
+                "ExtensionRejected",
+                requestId, sessionId, reason
+            );
+        }
     }
 }

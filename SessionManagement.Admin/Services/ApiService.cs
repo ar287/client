@@ -127,6 +127,27 @@ namespace SessionManagement.Admin.Services
             }
         }
 
+        public async Task<bool> ExtendSessionAsync(int sessionId, int additionalMinutes)
+        {
+            try
+            {
+                var request = new ApproveExtensionRequest
+                {
+                    SessionId = sessionId,
+                    AdditionalMinutes = additionalMinutes
+                };
+
+                HttpResponseMessage response = await _httpClient.PostAsJsonAsync(
+                    "/api/session/extend", request);
+
+                return response.IsSuccessStatusCode;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         // ── CUSTOMER MANAGEMENT ──────────────────────────────────────────
 
         public async Task<CustomerListResponse?> GetCustomersAsync(

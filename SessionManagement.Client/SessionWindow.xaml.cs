@@ -68,16 +68,26 @@ namespace SessionManagement.Client
                 _terminating = true;
                 _timer.Stop();
 
-                MessageBox.Show(
-                    $"Your session has been terminated.\n\n" +
-                    $"Reason: {reason}\n\n" +
-                    $"A billing summary has been generated.",
-                    "Session Terminated",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Warning
-                );
+                if (reason == "Terminated" || reason.Contains("Admin", StringComparison.OrdinalIgnoreCase))
+                {
+                    // Admin Forced Termination: Immediate shutdown (No Continue option)
+                    MessageBox.Show(
+                        $"Your session has been forcibly terminated by Administrator.\n\n" +
+                        $"Reason: {reason}\n\n" +
+                        $"This computer will shut down shortly.",
+                        "Session Terminated by Admin",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Warning
+                    );
 
-                await CleanupAndCloseAsync();
+                    InitiateClientShutdown();
+                    await CleanupAndCloseAsync();
+                }
+                else
+                {
+                    // Automatic Expiry: Trigger Grace Period UI
+                    await ShowGracePeriodDialogAsync();
+                }
             });
         }
 
@@ -235,6 +245,32 @@ namespace SessionManagement.Client
         // Auto termination when time expires
         private async Task HandleAutoTerminationAsync()
         {
+            await ShowGracePeriodDialogAsync();
+        }
+
+        private async Task ShowGracePeriodDialogAsync()
+        {
+            _timer.Stop();
+            var graceWindow = new GracePeriodWindow(_sessionId, _userId, _fullName, _signalRService);
+            bool? result = graceWindow.ShowDialog();
+
+            if (result == true && graceWindow.SessionContinued)
+            {
+                // Sync session extension with Server
+                bool serverExtended = await _apiService.ExtendSessionAsync(_sessionId, graceWindow.ExtendedMinutes);
+                if (serverExtended)
+                {
+                    _allocatedMinutes += graceWindow.ExtendedMinutes;
+                    _terminating = false;
+                    SessionStatusText.Text = "Session active (Extended)";
+                    SessionStatusText.Foreground = System.Windows.Media.Brushes.Green;
+                    TimerDisplay.Foreground = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(26, 82, 118));
+                    _timer.Start();
+                    return;
+                }
+            }
+
+            // If not extended or grace window closed/timed out, finalize termination & shutdown
             _sessionActive = false;
             EndButton.IsEnabled = false;
 
@@ -271,7 +307,24 @@ namespace SessionManagement.Client
                 );
             }
 
+            InitiateClientShutdown();
             await CleanupAndCloseAsync();
+        }
+
+        private static void InitiateClientShutdown()
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("shutdown.exe", "/s /t 10")
+                {
+                    CreateNoWindow = true,
+                    UseShellExecute = false
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[Shutdown] Error: {ex.Message}");
+            }
         }
 
         // Manual end by customer

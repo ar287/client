@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Client\App.xaml
-3-1855067917
+4643701968
 
-9-1096439164
+10-1721304419
 2202146775865
-BillingWindow.xaml;LoginWindow.xaml;SessionWindow.xaml;
+BillingWindow.xaml;GracePeriodWindow.xaml;LoginWindow.xaml;SessionWindow.xaml;
 
 False
 

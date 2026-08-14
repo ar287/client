@@ -91,3 +91,6 @@ C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Clie
 C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Client\obj\Debug\net9.0-windows\SessionManagement.Client.pdb
 C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Client\obj\Debug\net9.0-windows\SessionManagement.Client.genruntimeconfig.cache
 C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Client\obj\Debug\net9.0-windows\ref\SessionManagement.Client.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Client\obj\Debug\net9.0-windows\GracePeriodWindow.baml
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Client\obj\Debug\net9.0-windows\GracePeriodWindow.g.cs
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Client\obj\Debug\net9.0-windows\SessionManagement.Client.sourcelink.json

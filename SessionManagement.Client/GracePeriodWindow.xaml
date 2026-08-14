@@ -1,0 +1,63 @@
+<Window x:Class="SessionManagement.Client.GracePeriodWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Session Expired" Height="420" Width="520"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Topmost="True" Background="#1E1E2E">
+    <Border Padding="25">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <StackPanel Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,15">
+                <TextBlock Text="⏰ SESSION TIME EXPIRED" FontSize="22" FontWeight="Bold" Foreground="#F38BA8" HorizontalAlignment="Center"/>
+                <TextBlock Text="Your allocated session duration has ended." FontSize="14" Foreground="#CDD6F4" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <!-- Countdown Timer Display -->
+            <Border Grid.Row="1" Background="#313244" CornerRadius="10" Padding="15" Margin="0,0,0,15" HorizontalAlignment="Center" Width="300">
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Text="Time remaining to choose action:" FontSize="13" Foreground="#A6ADC8" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="CountdownText" Text="60s" FontSize="36" FontWeight="ExtraBold" Foreground="#FAB387" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Status / Waiting Info -->
+            <TextBlock x:Name="StatusMessageText" Grid.Row="2" Text="Select 'Continue Session' to request additional time from Admin, or 'End Session' to shut down."
+                       FontSize="13" Foreground="#BAC2DE" TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,15"/>
+
+            <!-- Options / Selection Panel -->
+            <StackPanel x:Name="ExtensionOptionsPanel" Grid.Row="3" VerticalAlignment="Center">
+                <TextBlock Text="Select Extension Time (Rs. 2.00 / min):" FontSize="13" Foreground="#A6ADC8" Margin="0,0,0,8" HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <RadioButton x:Name="Radio15" Content="+15 mins (Rs. 30)" Foreground="#CDD6F4" Margin="5,0,10,0" IsChecked="True"/>
+                    <RadioButton x:Name="Radio30" Content="+30 mins (Rs. 60)" Foreground="#CDD6F4" Margin="5,0,10,0"/>
+                    <RadioButton x:Name="Radio60" Content="+60 mins (Rs. 120)" Foreground="#CDD6F4" Margin="5,0,5,0"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Buttons -->
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="ContinueButton" Grid.Column="0" Content="Continue Session" Height="42"
+                        Background="#A6E3A1" Foreground="#11111B" FontWeight="Bold" FontSize="14"
+                        Click="ContinueButton_Click" Cursor="Hand"/>
+
+                <Button x:Name="EndButton" Grid.Column="2" Content="End Session &amp; Shutdown" Height="42"
+                        Background="#F38BA8" Foreground="#11111B" FontWeight="Bold" FontSize="14"
+                        Click="EndButton_Click" Cursor="Hand"/>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

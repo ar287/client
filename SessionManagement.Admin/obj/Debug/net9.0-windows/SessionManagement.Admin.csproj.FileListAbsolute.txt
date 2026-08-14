@@ -105,3 +105,4 @@ C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admi
 C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.pdb
 C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.genruntimeconfig.cache
 C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\ref\SessionManagement.Admin.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\obj\Debug\net9.0-windows\SessionManagement.Admin.sourcelink.json

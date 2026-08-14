@@ -76,5 +76,16 @@ namespace SessionManagement.Server.Controllers
                 ? Ok(response)
                 : BadRequest(response);
         }
+
+        [HttpPost("extend")]
+        public async Task<IActionResult> ExtendSession([FromBody] ApproveExtensionRequest request)
+        {
+            bool success = await _sessionService.ExtendSessionAsync(request.SessionId, request.AdditionalMinutes);
+            if (success)
+            {
+                return Ok(new { success = true, message = $"Session extended by {request.AdditionalMinutes} minutes." });
+            }
+            return BadRequest(new { success = false, message = "Could not extend session." });
+        }
     }
 }
