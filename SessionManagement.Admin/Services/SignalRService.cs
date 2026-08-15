@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.SignalR.Client;
+using SessionManagement.Shared;
 
 namespace SessionManagement.Admin.Services
 {
     public class SignalRService : IAsyncDisposable
     {
         private HubConnection? _connection;
-        private const string HubUrl = "http://localhost:5102/sessionhub";
 
         // Events the Admin UI subscribes to
         public event Action<int, string, int, int>?       OnSessionStarted;
@@ -21,7 +21,7 @@ namespace SessionManagement.Admin.Services
         public async Task ConnectAsync()
         {
             _connection = new HubConnectionBuilder()
-                .WithUrl(HubUrl)
+                .WithUrl(AppConfig.HubUrl)
                 .WithAutomaticReconnect()
                 .Build();
 

@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Threading;
 using System.Linq;
+using SessionManagement.Shared;
 using SessionManagement.Shared.DTOs;
 
 namespace SessionManagement.Admin
@@ -17,7 +18,6 @@ namespace SessionManagement.Admin
         private readonly HttpClient      _httpClient;
         private List<SecurityAlert>      _allAlerts = new List<SecurityAlert>();
         private DispatcherTimer          _clockTimer;
-        private const string BaseUrl     = "http://localhost:5102";
 
         public AlertCenterWindow()
         {
@@ -25,7 +25,7 @@ namespace SessionManagement.Admin
             {
                 InitializeComponent();
 
-                _httpClient = new HttpClient { BaseAddress = new Uri(BaseUrl) };
+                _httpClient = new HttpClient { BaseAddress = new Uri(AppConfig.BaseUrl) };
 
                 _clockTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
                 _clockTimer.Tick += (s, e) => {

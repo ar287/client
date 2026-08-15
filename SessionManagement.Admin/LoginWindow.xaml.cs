@@ -66,8 +66,9 @@ namespace SessionManagement.Admin
                 response.UserId,
                 response.FullName
             );
+            Application.Current.MainWindow = dashboard;
             dashboard.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void ShowError(string message)

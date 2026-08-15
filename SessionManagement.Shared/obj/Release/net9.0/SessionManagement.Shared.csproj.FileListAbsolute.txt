@@ -1,0 +1,13 @@
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\bin\Release\net9.0\SessionManagement.Shared.deps.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\bin\Release\net9.0\SessionManagement.Shared.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\bin\Release\net9.0\SessionManagement.Shared.pdb
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Release\net9.0\SessionManagement.Shared.csproj.AssemblyReference.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Release\net9.0\SessionManagement.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Release\net9.0\SessionManagement.Shared.AssemblyInfoInputs.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Release\net9.0\SessionManagement.Shared.AssemblyInfo.cs
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Release\net9.0\SessionManagement.Shared.csproj.CoreCompileInputs.cache
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Release\net9.0\SessionManagement.Shared.sourcelink.json
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Release\net9.0\SessionManagement.Shared.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Release\net9.0\refint\SessionManagement.Shared.dll
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Release\net9.0\SessionManagement.Shared.pdb
+C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Shared\obj\Release\net9.0\ref\SessionManagement.Shared.dll

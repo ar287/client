@@ -1,5 +1,6 @@
 using System.Net.Http;
 using System.Net.Http.Json;
+using SessionManagement.Shared;
 using SessionManagement.Shared.DTOs;
 
 namespace SessionManagement.Client.Services
@@ -8,14 +9,11 @@ namespace SessionManagement.Client.Services
     {
         private readonly HttpClient _httpClient;
 
-        // Update this if your port changes
-        private const string BaseUrl = "http://localhost:5102";
-
         public ApiService()
         {
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri(BaseUrl)
+                BaseAddress = new Uri(AppConfig.BaseUrl)
             };
         }
 
@@ -39,7 +37,7 @@ namespace SessionManagement.Client.Services
                 return new LoginResponse
                 {
                     Success = false,
-                    Message = $"Could not connect to server: {ex.Message}"
+                    Message = $"Unable to connect to Session Server ({AppConfig.BaseUrl}). Please make sure the Server PC is running and both PCs are connected to the same network.\nDetails: {ex.Message}"
                 };
             }
         }

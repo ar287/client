@@ -1,6 +1,7 @@
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Windows;
+using SessionManagement.Shared;
 using SessionManagement.Shared.DTOs;
 
 namespace SessionManagement.Admin
@@ -8,14 +9,13 @@ namespace SessionManagement.Admin
     public partial class SecurityAlertsWindow : Window
     {
         private readonly HttpClient _httpClient;
-        private const string BaseUrl = "http://localhost:5102";
 
         public SecurityAlertsWindow()
         {
             InitializeComponent();
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri(BaseUrl)
+                BaseAddress = new Uri(AppConfig.BaseUrl)
             };
             Loaded += async (s, e) => await LoadAlertsAsync();
         }

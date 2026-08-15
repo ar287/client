@@ -1,0 +1,53 @@
+====================================================================
+           SESSION MANAGEMENT SYSTEM - CLIENT PC DEPLOYMENT GUIDE
+====================================================================
+
+PREREQUISITES FOR CLIENT PC:
+----------------------------
+- Any clean Windows x64 computer (Windows 10 / Windows 11).
+- Connected to the same LAN / Wi-Fi network as the Server PC.
+- NO Visual Studio, .NET SDK, .NET Runtime, SQL Server, SSMS, or Ollama required!
+
+--------------------------------------------------------------------
+STEP-BY-STEP DEPLOYMENT INSTRUCTIONS:
+--------------------------------------------------------------------
+
+1. COPY DEPLOYMENT PACKAGE:
+   - Copy the entire "ClientPC" folder to the Client computer (e.g., to Desktop or C:\ClientPC).
+
+2. FIND SERVER PC LAN IP ADDRESS:
+   - On the Server PC, open Command Prompt (cmd) and run:
+       ipconfig
+   - Note down the IPv4 Address (e.g., 192.168.1.50 or 192.168.137.1).
+
+3. CONFIGURE SERVER BASE URL:
+   - On the Client PC, open the following file in Notepad:
+       ClientPC\Client\appsettings.json
+   - Update the "BaseUrl" value with the Server PC's IP address and port 5102:
+       {
+         "Server": {
+           "BaseUrl": "http://<SERVER_IP>:5102"
+         }
+       }
+     Example:
+       {
+         "Server": {
+           "BaseUrl": "http://192.168.1.50:5102"
+         }
+       }
+   - Save and close appsettings.json.
+
+4. LAUNCH CLIENT APPLICATION:
+   - Ensure the Server PC application is running.
+   - Double-click on:
+       ClientPC\Start-Client.bat
+   - The Client Application will start automatically and connect to the Server.
+
+--------------------------------------------------------------------
+TROUBLESHOOTING & NETWORK NOTES:
+--------------------------------------------------------------------
+- If Client cannot connect to Server:
+  1. Ensure Server PC firewall allows incoming traffic on port 5102.
+  2. Verify Client PC can ping Server PC IP:
+       ping <SERVER_IP>
+====================================================================

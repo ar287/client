@@ -1,5 +1,6 @@
 using System.Net.Http;
 using System.Net.Http.Json;
+using SessionManagement.Shared;
 using SessionManagement.Shared.DTOs;
 using SessionManagement.Shared.Models;
 
@@ -8,13 +9,12 @@ namespace SessionManagement.Admin.Services
     public class ApiService
     {
         private readonly HttpClient _httpClient;
-        private const string BaseUrl = "http://localhost:5102";
 
         public ApiService()
         {
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri(BaseUrl)
+                BaseAddress = new Uri(AppConfig.BaseUrl)
             };
         }
 
@@ -369,7 +369,7 @@ namespace SessionManagement.Admin.Services
         {
             try
             {
-                string url = $"http://localhost:5102{imagePath}";
+                string url = $"{AppConfig.BaseUrl}{imagePath}";
                 return await _httpClient.GetByteArrayAsync(url);
             }
             catch

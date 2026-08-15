@@ -38,7 +38,8 @@ builder.Services.AddScoped(sp =>
 
 builder.Services.AddHostedService<AutoTerminationBackgroundService>();
 
-builder.WebHost.UseUrls("http://localhost:5102");
+string serverUrls = builder.Configuration["Urls"] ?? "http://0.0.0.0:5102";
+builder.WebHost.UseUrls(serverUrls);
 
 var app = builder.Build();
 

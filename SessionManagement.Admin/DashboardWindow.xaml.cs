@@ -83,41 +83,55 @@ namespace SessionManagement.Admin
 
         private async Task RefreshActiveSessionsAsync()
         {
-            var response =
-                await _apiService.GetActiveSessionsAsync();
-
-            if (response == null || !response.Success) return;
-
-            Dispatcher.Invoke(() =>
+            try
             {
-                _activeSessions.Clear();
+                var response =
+                    await _apiService.GetActiveSessionsAsync();
 
-                foreach (var s in response.Sessions)
+                if (response == null || !response.Success || response.Sessions == null) return;
+
+                Dispatcher.Invoke(() =>
                 {
-                    _activeSessions.Add(new ActiveSession
+                    try
                     {
-                        UserId           = s.UserId,
-                        FullName         = s.FullName,
-                        Username         = s.Username,
-                        SessionId        = s.SessionId,
-                        AllocatedMinutes = s.AllocatedMinutes,
-                        RemainingTime    = FormatMinutes(
-                                            s.RemainingMinutes),
-                        CurrentCost      = s.CurrentCost,
-                        Status           = s.Status,
-                        StartedAt        = s.StartTime,
-                        ClientMachine    = s.ClientMachine,
-                        ImagePath        = s.ImagePath
-                    });
-                }
+                        _activeSessions.Clear();
 
-                ActiveSessionsCount.Text =
-                    _activeSessions.Count.ToString();
+                        foreach (var s in response.Sessions)
+                        {
+                            if (s == null) continue;
+                            _activeSessions.Add(new ActiveSession
+                            {
+                                UserId           = s.UserId,
+                                FullName         = s.FullName ?? string.Empty,
+                                Username         = s.Username ?? string.Empty,
+                                SessionId        = s.SessionId,
+                                AllocatedMinutes = s.AllocatedMinutes,
+                                RemainingTime    = FormatMinutes(s.RemainingMinutes),
+                                CurrentCost      = s.CurrentCost,
+                                Status           = s.Status ?? "Active",
+                                StartedAt        = s.StartTime ?? string.Empty,
+                                ClientMachine    = s.ClientMachine ?? string.Empty,
+                                ImagePath        = s.ImagePath
+                            });
+                        }
 
-                LastRefreshText.Text =
-                    $"Last refreshed: " +
-                    $"{DateTime.Now:hh:mm:ss tt}";
-            });
+                        ActiveSessionsCount.Text =
+                            _activeSessions.Count.ToString();
+
+                        LastRefreshText.Text =
+                            $"Last refreshed: " +
+                            $"{DateTime.Now:hh:mm:ss tt}";
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"[Dashboard] Error updating UI active sessions: {ex.Message}");
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[Dashboard] Error in RefreshActiveSessionsAsync: {ex.Message}");
+            }
         }
 
         private string FormatMinutes(int minutes)
@@ -135,19 +149,26 @@ namespace SessionManagement.Admin
         {
             Dispatcher.Invoke(async () =>
             {
-                // Refresh from DB to get complete data
-                await RefreshActiveSessionsAsync();
+                try
+                {
+                    // Refresh from DB to get complete data
+                    await RefreshActiveSessionsAsync();
 
-                _sessionsToday++;
-                SessionsTodayCount.Text = _sessionsToday.ToString();
+                    _sessionsToday++;
+                    SessionsTodayCount.Text = _sessionsToday.ToString();
 
-                AddAlert(
-                    $"▶️  Session started — " +
-                    $"{fullName} (Session #{sessionId})");
+                    AddAlert(
+                        $"▶️  Session started — " +
+                        $"{fullName} (Session #{sessionId})");
 
-                SetStatus(
-                    $"New session: {fullName} — " +
-                    $"{allocatedMinutes} min");
+                    SetStatus(
+                        $"New session: {fullName} — " +
+                        $"{allocatedMinutes} min");
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"[Dashboard] Error in OnSessionStarted: {ex.Message}");
+                }
             });
         }
 
@@ -157,24 +178,31 @@ namespace SessionManagement.Admin
         {
             Dispatcher.Invoke(() =>
             {
-                var session = _activeSessions
-                    .FirstOrDefault(
-                        s => s.SessionId == sessionId);
-
-                if (session == null) return;
-
-                session.RemainingTime = remainingTime;
-                session.CurrentCost   = currentCost;
-
-                // Force ListView refresh
-                RefreshListView();
-                UpdateTotalRevenue();
-
-                // Update detail panel if this session selected
-                if (_selectedSession?.SessionId == sessionId)
+                try
                 {
-                    DetailCost.Text =
-                        $"Rs. {currentCost:F2}";
+                    var session = _activeSessions
+                        .FirstOrDefault(
+                            s => s.SessionId == sessionId);
+
+                    if (session == null) return;
+
+                    session.RemainingTime = remainingTime;
+                    session.CurrentCost   = currentCost;
+
+                    // Force ListView refresh
+                    RefreshListView();
+                    UpdateTotalRevenue();
+
+                    // Update detail panel if this session selected
+                    if (_selectedSession?.SessionId == sessionId)
+                    {
+                        DetailCost.Text =
+                            $"Rs. {currentCost:F2}";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"[Dashboard] Error in OnTimerUpdated: {ex.Message}");
                 }
             });
         }
@@ -185,38 +213,45 @@ namespace SessionManagement.Admin
         {
             Dispatcher.Invoke(async () =>
             {
-                var session = _activeSessions
-                    .FirstOrDefault(
-                        s => s.SessionId == sessionId);
-
-                if (session != null)
+                try
                 {
-                    _activeSessions.Remove(session);
-                    _totalRevenue += totalAmount;
+                    var session = _activeSessions
+                        .FirstOrDefault(
+                            s => s.SessionId == sessionId);
 
-                    ActiveSessionsCount.Text =
-                        _activeSessions.Count.ToString();
-                    TotalRevenueText.Text =
-                        $"Rs. {_totalRevenue:F2}";
+                    if (session != null)
+                    {
+                        _activeSessions.Remove(session);
+                        _totalRevenue += totalAmount;
 
-                    AddAlert(
-                        $"⏹️  Session ended — " +
-                        $"User #{userId} | " +
-                        $"{totalMinutes} min | " +
-                        $"Rs. {totalAmount:F2}");
+                        ActiveSessionsCount.Text =
+                            _activeSessions.Count.ToString();
+                        TotalRevenueText.Text =
+                            $"Rs. {_totalRevenue:F2}";
 
-                    SetStatus(
-                        $"Session #{sessionId} ended. " +
-                        $"Amount: Rs. {totalAmount:F2}");
+                        AddAlert(
+                            $"⏹️  Session ended — " +
+                            $"User #{userId} | " +
+                            $"{totalMinutes} min | " +
+                            $"Rs. {totalAmount:F2}");
+
+                        SetStatus(
+                            $"Session #{sessionId} ended. " +
+                            $"Amount: Rs. {totalAmount:F2}");
+                    }
+
+                    if (_selectedSession?.SessionId == sessionId)
+                    {
+                        _selectedSession = null;
+                        ClearDetailPanel();
+                    }
+
+                    await RefreshActiveSessionsAsync();
                 }
-
-                if (_selectedSession?.SessionId == sessionId)
+                catch (Exception ex)
                 {
-                    _selectedSession = null;
-                    ClearDetailPanel();
+                    System.Diagnostics.Debug.WriteLine($"[Dashboard] Error in OnSessionEnded: {ex.Message}");
                 }
-
-                await RefreshActiveSessionsAsync();
             });
         }
 
@@ -224,13 +259,20 @@ namespace SessionManagement.Admin
         {
             Dispatcher.Invoke(() =>
             {
-                ConnectionStatus.Text = status;
-                ConnectionDot.Fill    =
-                    status == "Connected"
-                        ? Brushes.LimeGreen
-                        : Brushes.OrangeRed;
+                try
+                {
+                    ConnectionStatus.Text = status;
+                    ConnectionDot.Fill    =
+                        status == "Connected"
+                            ? Brushes.LimeGreen
+                            : Brushes.OrangeRed;
 
-                SetStatus($"Connection: {status}");
+                    SetStatus($"Connection: {status}");
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"[Dashboard] Error in OnConnectionChanged: {ex.Message}");
+                }
             });
         }
 
@@ -241,36 +283,43 @@ namespace SessionManagement.Admin
         {
             Dispatcher.Invoke(() =>
             {
-                if (_alertCenterWindow != null &&
-                    _alertCenterWindow.IsLoaded)
+                try
                 {
-                    _alertCenterWindow.AddLiveAlert(new SecurityAlert
+                    if (_alertCenterWindow != null &&
+                        _alertCenterWindow.IsLoaded)
                     {
-                        AlertType   = alertType,
-                        Description = message,
-                        Severity    = severity,
-                        CreatedAt   = DateTime.Now.ToString("F"),
-                        IsRead      = false
-                    });
-                }
+                        _alertCenterWindow.AddLiveAlert(new SecurityAlert
+                        {
+                            AlertType   = alertType,
+                            Description = message,
+                            Severity    = severity,
+                            CreatedAt   = DateTime.Now.ToString("F"),
+                            IsRead      = false
+                        });
+                    }
 
-                if (severity == "High")
+                    if (severity == "High")
+                    {
+                        MessageBox.Show(
+                            $"⚠  Security Alert\n\n" +
+                            $"Type     : {alertType}\n" +
+                            $"Severity : {severity}\n\n" +
+                            $"{message}",
+                            "Security Alert",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning
+                        );
+                    }
+
+                    AddAlert(
+                        $"[{severity}] {alertType} — {message}");
+                    SetStatus(
+                        $"Security alert: {alertType} ({severity})");
+                }
+                catch (Exception ex)
                 {
-                    MessageBox.Show(
-                        $"⚠  Security Alert\n\n" +
-                        $"Type     : {alertType}\n" +
-                        $"Severity : {severity}\n\n" +
-                        $"{message}",
-                        "Security Alert",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Warning
-                    );
+                    System.Diagnostics.Debug.WriteLine($"[Dashboard] Error in OnSecurityAlert: {ex.Message}");
                 }
-
-                AddAlert(
-                    $"[{severity}] {alertType} — {message}");
-                SetStatus(
-                    $"Security alert: {alertType} ({severity})");
             });
         }
 
@@ -279,38 +328,45 @@ namespace SessionManagement.Admin
         {
             Dispatcher.Invoke(async () =>
             {
-                AddAlert($"💳 EXTENSION REQUEST — {customerName} (Session #{sessionId}) | +{minutes} min | Amount: Rs. {amount:F2}");
-                SetStatus($"Extension request from {customerName} (+{minutes}m)");
-
-                MessageBoxResult result = MessageBox.Show(
-                    $"Customer '{customerName}' is requesting a session extension:\n\n" +
-                    $"➕ Additional Time: {minutes} minutes\n" +
-                    $"💵 Amount Due: Rs. {amount:F2}\n\n" +
-                    $"Has the customer paid cash / confirmed payment?",
-                    "Confirm Payment & Approve Extension",
-                    MessageBoxButton.YesNo,
-                    MessageBoxImage.Question
-                );
-
-                if (result == MessageBoxResult.Yes)
+                try
                 {
-                    // Approve extension on server and notify customer
-                    bool apiSuccess = await _apiService.ExtendSessionAsync(sessionId, minutes);
-                    if (apiSuccess)
+                    AddAlert($"💳 EXTENSION REQUEST — {customerName} (Session #{sessionId}) | +{minutes} min | Amount: Rs. {amount:F2}");
+                    SetStatus($"Extension request from {customerName} (+{minutes}m)");
+
+                    MessageBoxResult result = MessageBox.Show(
+                        $"Customer '{customerName}' is requesting a session extension:\n\n" +
+                        $"➕ Additional Time: {minutes} minutes\n" +
+                        $"💵 Amount Due: Rs. {amount:F2}\n\n" +
+                        $"Has the customer paid cash / confirmed payment?",
+                        "Confirm Payment & Approve Extension",
+                        MessageBoxButton.YesNo,
+                        MessageBoxImage.Question
+                    );
+
+                    if (result == MessageBoxResult.Yes)
                     {
-                        await _signalRService.ApproveExtensionAsync(requestId, sessionId, userId, minutes);
-                        AddAlert($"✅ APPROVED — Extension for {customerName} (+{minutes}m)");
-                        await RefreshActiveSessionsAsync();
+                        // Approve extension on server and notify customer
+                        bool apiSuccess = await _apiService.ExtendSessionAsync(sessionId, minutes);
+                        if (apiSuccess)
+                        {
+                            await _signalRService.ApproveExtensionAsync(requestId, sessionId, userId, minutes);
+                            AddAlert($"✅ APPROVED — Extension for {customerName} (+{minutes}m)");
+                            await RefreshActiveSessionsAsync();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to extend session in database.", "Server Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Failed to extend session in database.", "Server Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        await _signalRService.RejectExtensionAsync(requestId, sessionId, userId, "Payment not confirmed by Admin.");
+                        AddAlert($"❌ REJECTED — Extension for {customerName}");
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    await _signalRService.RejectExtensionAsync(requestId, sessionId, userId, "Payment not confirmed by Admin.");
-                    AddAlert($"❌ REJECTED — Extension for {customerName}");
+                    System.Diagnostics.Debug.WriteLine($"[Dashboard] Error in OnExtensionRequested: {ex.Message}");
                 }
             });
         }
