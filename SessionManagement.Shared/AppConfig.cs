@@ -21,7 +21,8 @@ namespace SessionManagement.Shared
             set => _baseUrl = value?.TrimEnd('/');
         }
 
-        public static string HubUrl => $"{BaseUrl.TrimEnd('/')}/sessionhub";
+        public static string HubUrl      => $"{BaseUrl.TrimEnd('/')}/sessionhub";
+        public static string AlertHubUrl => $"{BaseUrl.TrimEnd('/')}/alerthub";
 
         private static string LoadServerBaseUrl()
         {

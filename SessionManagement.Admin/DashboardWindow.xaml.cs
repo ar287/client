@@ -26,8 +26,14 @@ namespace SessionManagement.Admin
         private int     _totalAlerts   = 0;
         private int     _sessionsToday = 0;
 
+        // Phase 8: Live alert badge counter
+        private int _liveAlertBadgeCount = 0;
+        private LiveAlertFeedWindow? _liveAlertWindow;
+
         // Auto refresh timer
         private DispatcherTimer _refreshTimer = new();
+
+        public DashboardWindow() : this(1, "Admin") { }
 
         public DashboardWindow(int adminId, string adminName)
         {
@@ -76,7 +82,13 @@ namespace SessionManagement.Admin
             _signalRService.OnExtensionRequested += OnExtensionRequested;
             _signalRService.OnConnectionStatusChanged += OnConnectionChanged;
 
+            // Phase 8: Subscribe to live rule-fired alerts for badge
+            _signalRService.OnRuleAlert += OnRuleAlertReceived;
+
             await _signalRService.ConnectAsync();
+
+            // Phase 8: Connect to dedicated AlertHub
+            await _signalRService.ConnectAlertHubAsync();
         }
 
         // ── Refresh Active Sessions from DB ──────────────────────────
@@ -668,6 +680,77 @@ namespace SessionManagement.Admin
         {
             _refreshTimer.Stop();
             await _signalRService.DisposeAsync();
+        }
+
+        private void ViewAnalytics_Click(object sender, RoutedEventArgs e)
+        {
+            new OperationsAnalyticsWindow().Show();
+        }
+
+        private void ViewSecurityIntel_Click(object sender, RoutedEventArgs e)
+        {
+            new SecurityDashboardWindow().Show();
+        }
+
+        private void ViewAiInsights_Click(object sender, RoutedEventArgs e)
+        {
+            new AIInsightsDashboardWindow().Show();
+        }
+
+        private void ViewApprovals_Click(object sender, RoutedEventArgs e)
+        {
+            new ApprovalQueueWindow().Show();
+        }
+
+        private void ViewRemediation_Click(object sender, RoutedEventArgs e)
+        {
+            new RemediationControlWindow().Show();
+        }
+
+        private void ViewAuditExport_Click(object sender, RoutedEventArgs e)
+        {
+            new AuditExportWindow().Show();
+        }
+
+        private void ViewMasterConsole_Click(object sender, RoutedEventArgs e)
+        {
+            new MasterSecurityConsoleWindow().Show();
+        }
+
+        // ── Phase 8: Live Alert Feed ─────────────────────────────────
+
+        private void ViewLiveAlerts_Click(object sender, RoutedEventArgs e)
+        {
+            // Reset badge when user opens the feed
+            _liveAlertBadgeCount = 0;
+            AlertBadge.Visibility = Visibility.Collapsed;
+            AlertBadgeCount.Text = "0";
+
+            if (_liveAlertWindow == null || !_liveAlertWindow.IsLoaded)
+            {
+                _liveAlertWindow = new LiveAlertFeedWindow(_signalRService);
+                _liveAlertWindow.Show();
+            }
+            else
+            {
+                _liveAlertWindow.Activate();
+            }
+        }
+
+        private void OnRuleAlertReceived(SessionManagement.Shared.DTOs.SecurityAlertNotification notification)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                _liveAlertBadgeCount++;
+                AlertBadgeCount.Text = _liveAlertBadgeCount > 99 ? "99+" : _liveAlertBadgeCount.ToString();
+                AlertBadge.Visibility = Visibility.Visible;
+
+                // Also show in existing alert feed on dashboard
+                string severity = notification.Severity;
+                string msg = $"🔴 [{severity}] {notification.RuleName}: {notification.Message}";
+                AddAlert(msg);
+                SetStatus($"Live alert: {notification.Severity} — {notification.ClientId} (Score: {notification.RiskScore})");
+            });
         }
     }
 }

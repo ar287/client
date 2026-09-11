@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\dell\OneDrive\Desktop\pju\code\SessionManagement\SessionManagement.Admin\App.xaml
-81434546807
+17683698609
 
-13-132249314
+22408725808
 2161300083174
-AlertCenterWindow.xaml;BillingOverviewWindow.xaml;CustomerFormWindow.xaml;CustomersWindow.xaml;DashboardWindow.xaml;LoginWindow.xaml;LogViewerWindow.xaml;SecurityAlertsWindow.xaml;
+AIInsightsDashboardWindow.xaml;AlertCenterWindow.xaml;ApprovalQueueWindow.xaml;AuditExportWindow.xaml;BillingOverviewWindow.xaml;CustomerFormWindow.xaml;CustomersWindow.xaml;DashboardWindow.xaml;LiveAlertFeedWindow.xaml;LoginWindow.xaml;LogViewerWindow.xaml;MasterSecurityConsoleWindow.xaml;OperationsAnalyticsWindow.xaml;RemediationControlWindow.xaml;SecurityAlertsWindow.xaml;SecurityDashboardWindow.xaml;VisualRuleBuilderWindow.xaml;
 
 False
 

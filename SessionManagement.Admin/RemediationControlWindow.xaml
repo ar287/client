@@ -1,0 +1,151 @@
+<Window x:Class="SessionManagement.Admin.RemediationControlWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Automatic Remediation &amp; Active System Mitigation"
+        Height="740" Width="1120"
+        WindowStartupLocation="CenterScreen"
+        Background="#ECF0F5">
+
+    <Window.Resources>
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#F1F5F9"/>
+            <Setter Property="Foreground" Value="#334155"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="BorderBrush" Value="#CBD5E1"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <!-- Header -->
+            <RowDefinition Height="Auto"/>
+            <!-- Main Grid -->
+            <RowDefinition Height="*"/>
+            <!-- Footer Status -->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- ══════════════ 1. HEADER ══════════════ -->
+        <Grid Grid.Row="0" Margin="0,0,0,16">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Border Background="#F59E0B" CornerRadius="10" Width="44" Height="44" Margin="0,0,14,0">
+                    <TextBlock Text="⚡" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="System Remediation &amp; Threat Mitigation Engine"
+                               FontSize="20" FontWeight="Bold" Foreground="#0F172A"/>
+                    <TextBlock Text="Dispatch real-time remediation signals, process terminations, or screen locks to lab PCs"
+                               FontSize="12" Foreground="#64748B" Margin="0,2,0,0"/>
+                </StackPanel>
+            </StackPanel>
+
+            <Button Content="🔄 Refresh Audit Log"
+                    HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Height="38" Padding="16,0"
+                    FontSize="12" FontWeight="Bold"
+                    Foreground="White" Background="#334155"
+                    BorderThickness="0" Cursor="Hand"
+                    Click="Refresh_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+
+        <!-- ══════════════ 2. MAIN GRID ══════════════ -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="380"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left: Action Trigger Panel -->
+            <Border Grid.Column="0" Margin="0,0,14,0" Background="White" BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="12" Padding="18">
+                <StackPanel>
+                    <TextBlock Text="🚨 Dispatch Mitigation Action" FontSize="15" FontWeight="Bold" Foreground="#0F172A" Margin="0,0,0,14"/>
+
+                    <!-- Target PC -->
+                    <TextBlock Text="🖥️ Target Client PC ID" FontSize="11" FontWeight="Bold" Foreground="#64748B" Margin="0,0,0,4"/>
+                    <TextBox x:Name="ClientIdBox" Text="LAB-PC-01" Height="36" FontSize="13" Foreground="#0F172A" Background="#F8FAFC" BorderBrush="#CBD5E1" Padding="10,8" Margin="0,0,0,12"/>
+
+                    <!-- Action Type -->
+                    <TextBlock Text="⚡ Remediation Action" FontSize="11" FontWeight="Bold" Foreground="#64748B" Margin="0,0,0,4"/>
+                    <ComboBox x:Name="ActionTypeCombo" Height="36" FontSize="13" Foreground="#0F172A" Background="#F8FAFC" BorderBrush="#CBD5E1" Padding="10,6" Margin="0,0,0,12" SelectedIndex="0">
+                        <ComboBoxItem Content="LockScreen" Tag="LockScreen"/>
+                        <ComboBoxItem Content="TerminateSession" Tag="TerminateSession"/>
+                        <ComboBoxItem Content="KillProcess" Tag="KillProcess"/>
+                        <ComboBoxItem Content="BlockAccess" Tag="BlockAccess"/>
+                    </ComboBox>
+
+                    <!-- Target Process (Optional) -->
+                    <TextBlock Text="🎯 Target Process Name (Optional)" FontSize="11" FontWeight="Bold" Foreground="#64748B" Margin="0,0,0,4"/>
+                    <TextBox x:Name="TargetProcessBox" Text="cmd.exe" Height="36" FontSize="13" Foreground="#0F172A" Background="#F8FAFC" BorderBrush="#CBD5E1" Padding="10,8" Margin="0,0,0,12"/>
+
+                    <!-- Risk Level / Score -->
+                    <TextBlock Text="⚠️ Associated Risk Score (0-100)" FontSize="11" FontWeight="Bold" Foreground="#64748B" Margin="0,0,0,4"/>
+                    <TextBox x:Name="RiskScoreBox" Text="85" Height="36" FontSize="13" Foreground="#0F172A" Background="#F8FAFC" BorderBrush="#CBD5E1" Padding="10,8" Margin="0,0,0,12"/>
+
+                    <!-- Reason -->
+                    <TextBlock Text="📝 Justification / Policy Reason" FontSize="11" FontWeight="Bold" Foreground="#64748B" Margin="0,0,0,4"/>
+                    <TextBox x:Name="ReasonBox" Text="Automated remediation triggered by high-risk policy violation." Height="64" FontSize="12" Foreground="#0F172A" Background="#F8FAFC" BorderBrush="#CBD5E1" Padding="10,8" TextWrapping="Wrap" Margin="0,0,0,18"/>
+
+                    <!-- Execute Button -->
+                    <Button Content="⚡ DISPATCH MITIGATION SIGNAL"
+                            Height="44" FontSize="13" FontWeight="Bold"
+                            Foreground="White" Background="#D97706"
+                            BorderThickness="0" Cursor="Hand"
+                            Click="ExecuteRemediation_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="8"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+            </Border>
+
+            <!-- Right: Remediation History DataGrid -->
+            <Border Grid.Column="1" Background="White" BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="12" Padding="16">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="📜 System Remediation Audit Log" FontSize="15" FontWeight="Bold" Foreground="#0F172A" Margin="0,0,0,12"/>
+
+                    <DataGrid x:Name="RemediationDataGrid" Grid.Row="1"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              IsReadOnly="True"
+                              Background="White"
+                              RowBackground="White"
+                              AlternatingRowBackground="#F8FAFC"
+                              Foreground="#0F172A"
+                              BorderThickness="1"
+                              BorderBrush="#E2E8F0"
+                              GridLinesVisibility="Horizontal"
+                              HorizontalGridLinesBrush="#E2E8F0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                            <DataGridTextColumn Header="Target PC" Binding="{Binding ClientId}" Width="100"/>
+                            <DataGridTextColumn Header="Action Dispatched" Binding="{Binding ActionType}" Width="120"/>
+                            <DataGridTextColumn Header="Target Process" Binding="{Binding TargetProcessName}" Width="110"/>
+                            <DataGridTextColumn Header="Initiator" Binding="{Binding InitiatedBy}" Width="90"/>
+                            <DataGridTextColumn Header="Risk" Binding="{Binding RiskScore}" Width="50"/>
+                            <DataGridTextColumn Header="Status Message" Binding="{Binding Message}" Width="*"/>
+                            <DataGridTextColumn Header="Timestamp" Binding="{Binding ExecutedAtUtc, StringFormat={}{0:HH:mm:ss dd/MM}}" Width="110"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- ══════════════ 3. FOOTER ══════════════ -->
+        <TextBlock Grid.Row="2" x:Name="StatusText" Text="Remediation Engine active." FontSize="12" Foreground="#64748B" Margin="0,12,0,0"/>
+    </Grid>
+</Window>

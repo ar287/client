@@ -431,5 +431,278 @@ namespace SessionManagement.Admin.Services
                 return null;
             }
         }
+
+        public async Task<EventTimelineResponse?> GetEventTimelineAsync(EventFilterRequest filter)
+        {
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync("/api/eventingestion/timeline", filter);
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<EventTimelineResponse>();
+                }
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<bool> IngestActivityEventAsync(ActivityEventDto dto)
+        {
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync("/api/eventingestion/ingest", dto);
+                return response.IsSuccessStatusCode;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<List<ClientMachineDto>> GetAllClientMachinesAsync()
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync("/api/clientmachine/all");
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<List<ClientMachineDto>>() ?? new List<ClientMachineDto>();
+                }
+                return new List<ClientMachineDto>();
+            }
+            catch
+            {
+                return new List<ClientMachineDto>();
+            }
+        }
+
+        public async Task<AnalyticsSummaryDto?> GetAnalyticsSummaryAsync()
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync("/api/analytics/overview");
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<AnalyticsSummaryDto>();
+                }
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<List<SecurityRuleDto>> GetSecurityRulesAsync()
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync("/api/ruleengine/rules");
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<List<SecurityRuleDto>>() ?? new List<SecurityRuleDto>();
+                }
+                return new List<SecurityRuleDto>();
+            }
+            catch
+            {
+                return new List<SecurityRuleDto>();
+            }
+        }
+
+        public async Task<RiskAssessmentDto?> EvaluateClientRiskAsync(string clientId)
+        {
+            try
+            {
+                var response = await _httpClient.PostAsync($"/api/ruleengine/evaluate/{clientId}", null);
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<RiskAssessmentDto>();
+                }
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<RiskAssessmentDto?> EvaluateClientRiskWithAiAsync(string clientId)
+        {
+            try
+            {
+                var response = await _httpClient.PostAsync($"/api/ruleengine/ai-evaluate/{clientId}", null);
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<RiskAssessmentDto>();
+                }
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<SecurityRuleDto?> GenerateNlRuleDraftAsync(string promptText)
+        {
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync("/api/ruleengine/nl-rule-draft", new { Prompt = promptText });
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<SecurityRuleDto>();
+                }
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<bool> CreateSecurityRuleAsync(SecurityRuleDto rule)
+        {
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync("/api/ruleengine/rules", rule);
+                return response.IsSuccessStatusCode;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<List<PendingApprovalDto>> GetPendingApprovalsAsync()
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync("/api/approval/pending");
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<List<PendingApprovalDto>>() ?? new List<PendingApprovalDto>();
+                }
+            }
+            catch { }
+            return new List<PendingApprovalDto>();
+        }
+
+        public async Task<bool> ApprovePendingActionAsync(int id, string reviewedBy, string notes)
+        {
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync($"/api/approval/{id}/approve", new ApprovalDecisionDto
+                {
+                    ReviewedBy = reviewedBy,
+                    ReviewNotes = notes
+                });
+                return response.IsSuccessStatusCode;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> RejectPendingActionAsync(int id, string reviewedBy, string notes)
+        {
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync($"/api/approval/{id}/reject", new ApprovalDecisionDto
+                {
+                    ReviewedBy = reviewedBy,
+                    ReviewNotes = notes
+                });
+                return response.IsSuccessStatusCode;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<RemediationLogDto?> ExecuteRemediationAsync(RemediationRequestDto request)
+        {
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync("/api/remediation/execute", request);
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<RemediationLogDto>();
+                }
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<List<RemediationLogDto>> GetRemediationLogsAsync(string? clientId = null)
+        {
+            try
+            {
+                string url = string.IsNullOrWhiteSpace(clientId) ? "/api/remediation/history" : $"/api/remediation/history?clientId={clientId}";
+                var response = await _httpClient.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<List<RemediationLogDto>>() ?? new List<RemediationLogDto>();
+                }
+            }
+            catch { }
+            return new List<RemediationLogDto>();
+        }
+
+        public async Task<List<ForensicRecordDto>> GetForensicTimelineAsync(AuditExportFilterDto filter)
+        {
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync("/api/auditexport/timeline", filter);
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<List<ForensicRecordDto>>() ?? new List<ForensicRecordDto>();
+                }
+            }
+            catch { }
+            return new List<ForensicRecordDto>();
+        }
+
+        public async Task<AuditExportResultDto?> GenerateAuditExportAsync(AuditExportFilterDto filter)
+        {
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync("/api/auditexport/export", filter);
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<AuditExportResultDto>();
+                }
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<SystemHealthDto?> GetSystemHealthAsync()
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync("/api/systemhealth/status");
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<SystemHealthDto>();
+                }
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

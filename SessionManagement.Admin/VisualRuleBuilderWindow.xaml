@@ -1,0 +1,134 @@
+<Window x:Class="SessionManagement.Admin.VisualRuleBuilderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Visual Security Rule Builder &amp; NL Policy Assistant" Height="720" Width="1050"
+        WindowStartupLocation="CenterScreen" Background="#ECF0F5">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="White" BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="8" Padding="15" Margin="0,0,0,15">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                    <Button x:Name="TestRuleBtn" Content="🧪 Test Rule" Click="TestRuleBtn_Click" Padding="12,6" Background="#F59E0B" Foreground="White" FontWeight="Bold" BorderThickness="0" Cursor="Hand" Margin="0,0,10,0"/>
+                    <Button x:Name="SaveRuleBtn" Content="💾 Save &amp; Activate Rule" Click="SaveRuleBtn_Click" Padding="12,6" Background="#10B981" Foreground="White" FontWeight="Bold" BorderThickness="0" Cursor="Hand"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="🛠️ Visual Security Rule Builder" FontSize="20" FontWeight="Bold" Foreground="#0F172A"/>
+                    <TextBlock Text="Construct visual detection rules or generate draft rules from plain text prompts." FontSize="12" Foreground="#64748B"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Natural Language Assistant & Rule Parameters Form -->
+            <Border Grid.Column="0" Background="White" BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="8" Padding="20" Margin="0,0,10,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <!-- NL Prompt Assistant Card -->
+                        <Border Background="#F0F9FF" CornerRadius="6" Padding="12" Margin="0,0,0,15" BorderBrush="#0284C7" BorderThickness="1">
+                            <StackPanel>
+                                <TextBlock Text="🤖 Natural Language Policy Assistant" FontWeight="Bold" Foreground="#0284C7" Margin="0,0,0,5"/>
+                                <TextBlock Text="Enter plain text policy prompt (e.g. 'If 5 failed logins happen in 10 mins, lock PC'):" FontSize="11" Foreground="#64748B" Margin="0,0,0,8"/>
+                                <TextBox x:Name="NlPromptInput" Text="If 5 failed logins occur in 10 minutes on the same PC, create a critical alert and request AI analysis." Height="60" TextWrapping="Wrap" Padding="8" Background="White" Foreground="#0F172A" BorderBrush="#CBD5E1" Margin="0,0,0,8"/>
+                                <Button x:Name="GenerateDraftBtn" Content="✨ Convert to Structured Rule Draft" Click="GenerateDraftBtn_Click" Padding="8,4" Background="#8B5CF6" Foreground="White" FontWeight="Bold" BorderThickness="0" Cursor="Hand"/>
+                            </StackPanel>
+                        </Border>
+
+                        <TextBlock Text="Rule Name:" Foreground="#64748B" FontWeight="SemiBold" Margin="0,0,0,2"/>
+                        <TextBox x:Name="RuleNameInput" Text="Prevent Brute Force Logins" Padding="6" Background="#F8FAFC" Foreground="#0F172A" BorderBrush="#CBD5E1" Margin="0,0,0,10"/>
+
+                        <TextBlock Text="Description:" Foreground="#64748B" FontWeight="SemiBold" Margin="0,0,0,2"/>
+                        <TextBox x:Name="DescriptionInput" Text="Detects repeated authentication failures." Padding="6" Background="#F8FAFC" Foreground="#0F172A" BorderBrush="#CBD5E1" Margin="0,0,0,10"/>
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="0,0,5,0">
+                                <TextBlock Text="Severity:" Foreground="#64748B" FontWeight="SemiBold"/>
+                                <ComboBox x:Name="SeverityCombo" SelectedIndex="1" Padding="6" Background="#F8FAFC" Foreground="#0F172A">
+                                    <ComboBoxItem Content="Low"/>
+                                    <ComboBoxItem Content="Medium"/>
+                                    <ComboBoxItem Content="High"/>
+                                    <ComboBoxItem Content="Critical"/>
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="5,0,0,0">
+                                <TextBlock Text="Scope:" Foreground="#64748B" FontWeight="SemiBold"/>
+                                <ComboBox x:Name="ScopeCombo" SelectedIndex="0" Padding="6" Background="#F8FAFC" Foreground="#0F172A">
+                                    <ComboBoxItem Content="SamePC"/>
+                                    <ComboBoxItem Content="SameUser"/>
+                                    <ComboBoxItem Content="AllPCs"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </Grid>
+
+                        <TextBlock Text="Metric Event Type:" Foreground="#64748B" FontWeight="SemiBold" Margin="0,0,0,2"/>
+                        <ComboBox x:Name="MetricTypeCombo" SelectedIndex="0" Padding="6" Background="#F8FAFC" Foreground="#0F172A" Margin="0,0,0,10">
+                            <ComboBoxItem Content="FailedLogin"/>
+                            <ComboBoxItem Content="SecurityAlert"/>
+                            <ComboBoxItem Content="SessionTerminated"/>
+                            <ComboBoxItem Content="UnauthorizedProcess"/>
+                            <ComboBoxItem Content="OfflineUnexpected"/>
+                        </ComboBox>
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="0,0,5,0">
+                                <TextBlock Text="Threshold Count:" Foreground="#64748B" FontWeight="SemiBold"/>
+                                <TextBox x:Name="ThresholdInput" Text="5" Padding="6" Background="#F8FAFC" Foreground="#0F172A" BorderBrush="#CBD5E1"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="5,0,0,0">
+                                <TextBlock Text="Time Window (Mins):" Foreground="#64748B" FontWeight="SemiBold"/>
+                                <TextBox x:Name="WindowInput" Text="10" Padding="6" Background="#F8FAFC" Foreground="#0F172A" BorderBrush="#CBD5E1"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <TextBlock Text="Triggered Action:" Foreground="#64748B" FontWeight="SemiBold" Margin="0,0,0,2"/>
+                        <ComboBox x:Name="ActionTypeCombo" SelectedIndex="0" Padding="6" Background="#F8FAFC" Foreground="#0F172A" Margin="0,0,0,10">
+                            <ComboBoxItem Content="CreateAlert"/>
+                            <ComboBoxItem Content="NotifyAdmin"/>
+                            <ComboBoxItem Content="RequestAiAnalysis"/>
+                            <ComboBoxItem Content="MarkClientUnderReview"/>
+                            <ComboBoxItem Content="LockClient"/>
+                        </ComboBox>
+
+                        <CheckBox x:Name="RequiresApprovalCheck" Content="Require Explicit Admin Approval for Action" Foreground="#0F172A" FontWeight="SemiBold" Margin="0,5,0,10"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+
+            <!-- Preview & Test Output Panel -->
+            <Border Grid.Column="1" Background="White" BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="8" Padding="20" Margin="10,0,0,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <TextBlock Text="👁️ Rule Preview &amp; Test Output" FontSize="16" FontWeight="Bold" Foreground="#0F172A" Margin="0,0,0,15"/>
+
+                        <Border Background="#F1F5F9" CornerRadius="6" Padding="15" Margin="0,0,0,15" BorderBrush="#CBD5E1" BorderThickness="1">
+                            <StackPanel>
+                                <TextBlock Text="Rule Structure Summary:" Foreground="#64748B" FontSize="11" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                                <TextBlock x:Name="PreviewSummaryText" Text="IF 5 FailedLogin events occur within 10 minutes on SamePC THEN CreateAlert." Foreground="#0F172A" FontSize="13" TextWrapping="Wrap" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Border>
+
+                        <TextBlock Text="Historical Data Test Results:" Foreground="#64748B" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                        <ListBox x:Name="TestResultsList" Background="#F8FAFC" Foreground="#0F172A" BorderBrush="#CBD5E1" Height="250"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

@@ -26,6 +26,9 @@ namespace SessionManagement.Server.Services
             _defaultModel = configuration["OllamaConfig:Model"] ?? "llama3.2:3b";
         }
 
+        public string DefaultModel => _defaultModel;
+        public string BaseUrl => _baseUrl;
+
         /// <summary>
         /// Analyzes a security alert using Ollama AI to determine threat score and remediation.
         /// </summary>
@@ -58,7 +61,7 @@ Respond ONLY with a raw valid JSON object without markdown formatting:
                 {
                     using var doc = JsonDocument.Parse(ExtractJson(jsonResult));
                     var root = doc.RootElement;
-                    alert.AIThreatScore = root.TryGetProperty("threatScore", out var s) ? s.GetInt32() : (alert.Severity == "High" ? 85 : 45);
+                    alert.AIThreatScore = root.TryGetProperty("threatScore", out var s) ? Math.Clamp(s.GetInt32(), 0, 100) : (alert.Severity == "High" ? 85 : 45);
                     alert.AIClassification = root.TryGetProperty("classification", out var c) ? c.GetString() : alert.AlertType;
                     alert.AIExplanation = root.TryGetProperty("explanation", out var e) ? e.GetString() : alert.Description;
                     alert.AIRecommendedAction = root.TryGetProperty("recommendedAction", out var a) ? a.GetString() : "Review user session permissions.";
@@ -189,6 +192,145 @@ Respond ONLY with a raw valid JSON object without markdown formatting:
             response.Explanation = "Raw text search (AI engine offline).";
             response.IsParsed = false;
             return response;
+        }
+
+        /// <summary>
+        /// Extends client risk assessment using Ollama AI to provide deep explanations and confidence scores.
+        /// </summary>
+        public async Task<RiskAssessmentDto> AnalyzeClientRiskWithAiAsync(string clientId, RiskAssessmentDto ruleAssessment, List<ActivityEventDto> recentEvents)
+        {
+            try
+            {
+                var eventsSummary = string.Join("\n", recentEvents.Take(15).Select(e => $"[{e.TimestampUtc:HH:mm:ss}] Type: {e.EventType}, Sev: {e.Severity}, Msg: {e.Message}"));
+
+                var prompt = $@"You are a Cybersecurity AI Intelligence Specialist.
+Analyze client machine risk for PC '{clientId}':
+Deterministic Rule Risk Score: {ruleAssessment.RiskScore}/100
+Deterministic Risk Level: {ruleAssessment.RiskLevel}
+
+Recent Activity Events:
+{eventsSummary}
+
+Respond ONLY with a raw valid JSON object without markdown formatting:
+{{
+  ""aiRiskScore"": 65,
+  ""aiRiskLevel"": ""High"",
+  ""explanation"": ""Elevated risk due to sequence of authentication anomalies."",
+  ""recommendedAction"": ""Lock client PC and request administrator verification."",
+  ""confidence"": 0.92
+}}";
+
+                var jsonResult = await CallOllamaGenerateAsync(prompt);
+                if (!string.IsNullOrWhiteSpace(jsonResult))
+                {
+                    using var doc = JsonDocument.Parse(ExtractJson(jsonResult));
+                    var root = doc.RootElement;
+                    int aiScore = root.TryGetProperty("aiRiskScore", out var s) ? Math.Clamp(s.GetInt32(), 0, 100) : ruleAssessment.RiskScore;
+                    string aiLevel = root.TryGetProperty("aiRiskLevel", out var l) ? l.GetString() ?? ruleAssessment.RiskLevel : ruleAssessment.RiskLevel;
+                    string explanation = root.TryGetProperty("explanation", out var e) ? e.GetString() ?? "" : "";
+                    string action = root.TryGetProperty("recommendedAction", out var a) ? a.GetString() ?? ruleAssessment.RecommendedAction : ruleAssessment.RecommendedAction;
+                    double confidence = root.TryGetProperty("confidence", out var c) ? Math.Clamp(c.GetDouble(), 0.1, 1.0) : 0.95;
+
+                    ruleAssessment.RiskScore = (ruleAssessment.RiskScore + aiScore) / 2; // Hybrid score
+                    ruleAssessment.RiskLevel = ruleAssessment.RiskScore >= 80 ? "Critical" : ruleAssessment.RiskScore >= 60 ? "High" : ruleAssessment.RiskScore >= 30 ? "Medium" : "Low";
+                    if (!string.IsNullOrWhiteSpace(explanation))
+                        ruleAssessment.Reasons.Add($"[AI Insight] {explanation}");
+                    ruleAssessment.RecommendedAction = action;
+                    ruleAssessment.EvaluatedBy = $"OllamaAI ({_defaultModel})";
+                    ruleAssessment.ConfidenceScore = confidence;
+
+                    return ruleAssessment;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "Ollama AI risk analysis fallback triggered for PC {ClientId}", clientId);
+            }
+
+            ruleAssessment.EvaluatedBy = "FallbackRule";
+            return ruleAssessment;
+        }
+
+        /// <summary>
+        /// Converts natural language request into a draft security rule structure.
+        /// </summary>
+        public async Task<SecurityRuleDto> GenerateNaturalLanguageRuleDraftAsync(string userPrompt)
+        {
+            var draftRule = new SecurityRuleDto
+            {
+                RuleName = "Draft Rule",
+                Description = userPrompt,
+                IsDraft = true,
+                IsActive = false,
+                CreatedBy = "AI Assistant"
+            };
+
+            try
+            {
+                var prompt = $@"Convert this admin security policy prompt into a structured security rule JSON draft.
+Supported Scope: SamePC, SameUser, SameSession, SameIP, SelectedPCs, AllPCs
+Supported MetricTypes: FailedLogin, SecurityAlert, UnauthorizedProcess, SessionTerminated, OfflineUnexpected
+Supported ActionTypes: CreateAlert, NotifyAdmin, RequestAiAnalysis, MarkClientUnderReview, LockClient, PauseSession, TerminateSession
+
+User Policy Prompt: ""{userPrompt}""
+
+Respond ONLY with a raw valid JSON object without markdown formatting:
+{{
+  ""ruleName"": ""Prevent Brute Force Logins"",
+  ""description"": ""Triggers alert on repeated failed login attempts."",
+  ""severity"": ""High"",
+  ""scope"": ""SamePC"",
+  ""metricType"": ""FailedLogin"",
+  ""thresholdValue"": ""5"",
+  ""windowMinutes"": 10,
+  ""actionType"": ""CreateAlert"",
+  ""requiresApproval"": false
+}}";
+
+                var jsonResult = await CallOllamaGenerateAsync(prompt);
+                if (!string.IsNullOrWhiteSpace(jsonResult))
+                {
+                    using var doc = JsonDocument.Parse(ExtractJson(jsonResult));
+                    var root = doc.RootElement;
+
+                    draftRule.RuleName = root.TryGetProperty("ruleName", out var n) ? n.GetString() ?? "Draft Security Rule" : "Draft Security Rule";
+                    draftRule.Description = root.TryGetProperty("description", out var d) ? d.GetString() ?? userPrompt : userPrompt;
+                    draftRule.Severity = root.TryGetProperty("severity", out var s) ? s.GetString() ?? "Medium" : "Medium";
+                    draftRule.Scope = root.TryGetProperty("scope", out var sc) ? sc.GetString() ?? "SamePC" : "SamePC";
+
+                    string metric = root.TryGetProperty("metricType", out var m) ? m.GetString() ?? "FailedLogin" : "FailedLogin";
+                    string threshold = root.TryGetProperty("thresholdValue", out var t) ? t.GetString() ?? "5" : "5";
+                    int window = root.TryGetProperty("windowMinutes", out var w) ? w.GetInt32() : 10;
+                    string action = root.TryGetProperty("actionType", out var a) ? a.GetString() ?? "CreateAlert" : "CreateAlert";
+                    bool approval = root.TryGetProperty("requiresApproval", out var req) && req.GetBoolean();
+
+                    draftRule.Conditions.Add(new RuleConditionDto
+                    {
+                        MetricType = metric,
+                        Operator = "CountInWindow",
+                        ThresholdValue = threshold,
+                        WindowMinutes = window
+                    });
+
+                    draftRule.Actions.Add(new RuleActionDto
+                    {
+                        ActionType = action,
+                        RequiresApproval = approval
+                    });
+
+                    return draftRule;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "Ollama NL rule assistant fallback triggered.");
+            }
+
+            // Fallback draft rule
+            draftRule.RuleName = "Draft Policy Rule (Rule-based Fallback)";
+            draftRule.Conditions.Add(new RuleConditionDto { MetricType = "SecurityAlert", Operator = "CountInWindow", ThresholdValue = "3", WindowMinutes = 10 });
+            draftRule.Actions.Add(new RuleActionDto { ActionType = "CreateAlert", RequiresApproval = false });
+            return draftRule;
         }
 
         private async Task<string?> CallOllamaGenerateAsync(string prompt)

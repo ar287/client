@@ -20,86 +20,186 @@
         </Grid.RowDefinitions>
 
         <!-- ══════════════ HEADER ══════════════ -->
-        <Border Grid.Row="0" Background="#1B2E4B">
-            <Grid Margin="28,0">
+        <Border Grid.Row="0" Background="White" BorderBrush="#E2E8F0" BorderThickness="0,0,0,1">
+            <Grid Margin="20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
                 <!-- Left: Title -->
-                <StackPanel VerticalAlignment="Center"
-                            Orientation="Horizontal">
+                <StackPanel Grid.Column="0" VerticalAlignment="Center"
+                            Orientation="Horizontal" Margin="0,0,16,0">
                     <TextBlock Text="📊  "
                                FontSize="22"
-                               Foreground="White"
+                               Foreground="#1E293B"
                                VerticalAlignment="Center"/>
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock Text="Admin Dashboard"
-                                   FontSize="20"
+                                   FontSize="18"
                                    FontWeight="Bold"
-                                   Foreground="White"/>
+                                   Foreground="#0F172A"/>
                         <TextBlock x:Name="AdminNameText"
-                                   FontSize="12"
-                                   Foreground="#90B4D4"
-                                   Margin="0,3,0,0"/>
+                                   FontSize="11"
+                                   Foreground="#64748B"
+                                   Margin="0,2,0,0"/>
                     </StackPanel>
                 </StackPanel>
 
-                <!-- Center: Action Buttons -->
-                <StackPanel HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal">
+                <!-- Center: Action Buttons (Scrollable so it never overlaps title) -->
+                <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled"
+                              Focusable="False" VerticalAlignment="Center">
+                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Margin="4,8">
 
-                    <Button Content="👥  Customers"
-                            Height="40" Padding="18,0"
-                            Margin="0,0,10,0"
-                            FontSize="13" FontWeight="Bold"
-                            Foreground="White" BorderThickness="0"
-                            Cursor="Hand"
-                            Click="ViewCustomers_Click"
-                            Style="{StaticResource AdminPrimaryButtonStyle}"/>
-                            
-                    <Button Content="💰  Billing"
-                            Height="40" Padding="18,0"
-                            Margin="0,0,10,0"
-                            FontSize="13" FontWeight="Bold"
-                            Foreground="White" BorderThickness="0"
-                            Cursor="Hand"
-                            Click="ViewBilling_Click"
-                            Style="{StaticResource SuccessButtonStyle}"/>
+                        <Button Content="👑  Master Console"
+                                Height="36" Padding="14,0"
+                                Margin="0,0,8,0"
+                                FontSize="12" FontWeight="Bold"
+                                Foreground="White" BorderThickness="0"
+                                Cursor="Hand"
+                                Click="ViewMasterConsole_Click"
+                                Background="#6366F1"/>
 
-                    <Button Content="🔔  Alerts"
-                            Height="40" Padding="18,0"
-                            Margin="0,0,10,0"
-                            FontSize="13" FontWeight="Bold"
-                            Foreground="White" BorderThickness="0"
-                            Cursor="Hand"
-                            Click="ViewSecurityAlerts_Click"
-                            Style="{StaticResource AdminDangerButtonStyle}"/>
+                        <Button Content="👥  Customers"
+                                Height="36" Padding="14,0"
+                                Margin="0,0,8,0"
+                                FontSize="12" FontWeight="Bold"
+                                Foreground="White" BorderThickness="0"
+                                Cursor="Hand"
+                                Click="ViewCustomers_Click"
+                                Style="{StaticResource AdminPrimaryButtonStyle}"/>
+                                
+                        <Button Content="💰  Billing"
+                                Height="36" Padding="14,0"
+                                Margin="0,0,8,0"
+                                FontSize="12" FontWeight="Bold"
+                                Foreground="White" BorderThickness="0"
+                                Cursor="Hand"
+                                Click="ViewBilling_Click"
+                                Style="{StaticResource SuccessButtonStyle}"/>
 
-                    <Button Content="📝  Logs"
-                            Height="40" Padding="18,0"
-                            Margin="0,0,10,0"
-                            FontSize="13" FontWeight="Bold"
-                            Foreground="White" BorderThickness="0"
-                            Cursor="Hand"
-                            Click="ViewLogs_Click"
-                            Style="{StaticResource AdminPrimaryButtonStyle}"/>
-                </StackPanel>
+                        <Button Content="🔔  Alerts"
+                                Height="36" Padding="14,0"
+                                Margin="0,0,8,0"
+                                FontSize="12" FontWeight="Bold"
+                                Foreground="White" BorderThickness="0"
+                                Cursor="Hand"
+                                Click="ViewSecurityAlerts_Click"
+                                Style="{StaticResource AdminDangerButtonStyle}"/>
+
+                        <Button Content="📝  Logs"
+                                Height="36" Padding="14,0"
+                                Margin="0,0,8,0"
+                                FontSize="12" FontWeight="Bold"
+                                Foreground="White" BorderThickness="0"
+                                Cursor="Hand"
+                                Click="ViewLogs_Click"
+                                Style="{StaticResource AdminPrimaryButtonStyle}"/>
+
+                        <Button Content="📈  Analytics"
+                                Height="36" Padding="14,0"
+                                Margin="0,0,8,0"
+                                FontSize="12" FontWeight="Bold"
+                                Foreground="White" BorderThickness="0"
+                                Cursor="Hand"
+                                Click="ViewAnalytics_Click"
+                                Style="{StaticResource AdminPrimaryButtonStyle}"/>
+
+                        <Button Content="🛡️  Security Intel"
+                                Height="36" Padding="14,0"
+                                Margin="0,0,8,0"
+                                FontSize="12" FontWeight="Bold"
+                                Foreground="White" BorderThickness="0"
+                                Cursor="Hand"
+                                Click="ViewSecurityIntel_Click"
+                                Style="{StaticResource AdminDangerButtonStyle}"/>
+
+                        <Button Content="🧠  AI Insights"
+                                Height="36" Padding="14,0"
+                                Margin="0,0,8,0"
+                                FontSize="12" FontWeight="Bold"
+                                Foreground="White" BorderThickness="0"
+                                Cursor="Hand"
+                                Click="ViewAiInsights_Click"
+                                Style="{StaticResource SuccessButtonStyle}"/>
+
+                        <Button Content="🛡️  Approvals"
+                                Height="36" Padding="14,0"
+                                Margin="0,0,8,0"
+                                FontSize="12" FontWeight="Bold"
+                                Foreground="White" BorderThickness="0"
+                                Cursor="Hand"
+                                Click="ViewApprovals_Click"
+                                Style="{StaticResource AdminPrimaryButtonStyle}"/>
+
+                        <Button Content="⚡  Remediation"
+                                Height="36" Padding="14,0"
+                                Margin="0,0,8,0"
+                                FontSize="12" FontWeight="Bold"
+                                Foreground="White" BorderThickness="0"
+                                Cursor="Hand"
+                                Click="ViewRemediation_Click"
+                                Style="{StaticResource AdminDangerButtonStyle}"/>
+
+                        <Button Content="📁  Audit Export"
+                                Height="36" Padding="14,0"
+                                Margin="0,0,8,0"
+                                FontSize="12" FontWeight="Bold"
+                                Foreground="White" BorderThickness="0"
+                                Cursor="Hand"
+                                Click="ViewAuditExport_Click"
+                                Style="{StaticResource AdminPrimaryButtonStyle}"/>
+
+                        <!-- Live Alerts Button with Badge -->
+                        <Grid Margin="0,0,8,0">
+                            <Button Content="🔴  Live Alerts"
+                                    Height="36" Padding="14,0"
+                                    FontSize="12" FontWeight="Bold"
+                                    Foreground="White" BorderThickness="0"
+                                    Cursor="Hand"
+                                    Click="ViewLiveAlerts_Click"
+                                    Background="#DC2626"/>
+                            <Border x:Name="AlertBadge"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Margin="0,-6,-6,0"
+                                    Background="#EF4444"
+                                    CornerRadius="10"
+                                    MinWidth="18" Height="18"
+                                    Padding="3,0"
+                                    Visibility="Collapsed">
+                                <TextBlock x:Name="AlertBadgeCount"
+                                           Text="0"
+                                           FontSize="10"
+                                           FontWeight="Bold"
+                                           Foreground="White"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
 
                 <!-- Right: Connection Status -->
-                <Border HorizontalAlignment="Right"
+                <Border Grid.Column="2" HorizontalAlignment="Right"
                         VerticalAlignment="Center"
-                        Background="#2E4D7B"
-                        CornerRadius="22"
-                        Padding="18,10">
+                        Background="#F1F5F9"
+                        BorderBrush="#CBD5E1"
+                        BorderThickness="1"
+                        CornerRadius="18"
+                        Padding="14,8"
+                        Margin="16,0,0,0">
                     <StackPanel Orientation="Horizontal">
                         <Ellipse x:Name="ConnectionDot"
-                                 Width="12" Height="12"
+                                 Width="10" Height="10"
                                  Fill="#E74C3C"
-                                 Margin="0,0,10,0"/>
+                                 Margin="0,0,8,0"/>
                         <TextBlock x:Name="ConnectionStatus"
                                    Text="Disconnected"
-                                   FontSize="13"
+                                   FontSize="12"
                                    FontWeight="Bold"
-                                   Foreground="White"
+                                   Foreground="#0F172A"
                                    VerticalAlignment="Center"/>
                     </StackPanel>
                 </Border>
@@ -780,21 +880,21 @@
         </Grid>
 
         <!-- ══════════════ STATUS BAR ══════════════ -->
-        <Border Grid.Row="3" Background="#1B2E4B" Padding="22,0">
+        <Border Grid.Row="3" Background="White" BorderBrush="#E2E8F0" BorderThickness="0,1,0,0" Padding="22,0">
             <Grid>
                 <StackPanel Orientation="Horizontal"
                             VerticalAlignment="Center">
                     <TextBlock Text="📡  "
                                FontSize="12"
-                               Foreground="#90B4D4"/>
+                               Foreground="#64748B"/>
                     <TextBlock x:Name="StatusBarText"
                                Text="Ready — Waiting for activity"
                                FontSize="12"
-                               Foreground="#90B4D4"/>
+                               Foreground="#64748B"/>
                 </StackPanel>
                 <TextBlock x:Name="CurrentTimeText"
                            FontSize="12"
-                           Foreground="#90B4D4"
+                           Foreground="#64748B"
                            HorizontalAlignment="Right"
                            VerticalAlignment="Center"/>
             </Grid>

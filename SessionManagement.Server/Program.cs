@@ -17,6 +17,19 @@ builder.Services.AddSingleton(new CustomerService(connectionString));
 builder.Services.AddSingleton<AIService>();
 builder.Services.AddSingleton(new LogService(connectionString));
 builder.Services.AddSingleton(new SessionQueryService(connectionString));
+builder.Services.AddSingleton(sp => new EventService(connectionString, sp.GetRequiredService<ILogger<EventService>>()));
+builder.Services.AddSingleton(sp => new ClientMachineService(connectionString, sp.GetRequiredService<ILogger<ClientMachineService>>()));
+builder.Services.AddSingleton(sp => new AnalyticsService(connectionString, sp.GetRequiredService<ILogger<AnalyticsService>>()));
+builder.Services.AddSingleton(sp => new RuleEngineService(
+    connectionString,
+    sp.GetRequiredService<ILogger<RuleEngineService>>(),
+    sp.GetRequiredService<Microsoft.AspNetCore.SignalR.IHubContext<AlertHub>>()));
+builder.Services.AddSingleton(sp => new ApprovalService(connectionString, sp.GetRequiredService<ILogger<ApprovalService>>()));
+builder.Services.AddSingleton(sp => new RemediationService(
+    connectionString,
+    sp.GetRequiredService<ILogger<RemediationService>>(),
+    sp.GetRequiredService<Microsoft.AspNetCore.SignalR.IHubContext<SessionHub>>()));
+builder.Services.AddSingleton(sp => new AuditExportService(connectionString, sp.GetRequiredService<ILogger<AuditExportService>>()));
 
 builder.Services.AddSingleton(sp =>
 {
@@ -57,6 +70,7 @@ app.UseStaticFiles();
 app.UseAuthorization();
 app.MapControllers();
 app.MapHub<SessionHub>("/sessionhub");
+app.MapHub<AlertHub>("/alerthub");
 
 PasswordSeeder.PrintHashes();
 

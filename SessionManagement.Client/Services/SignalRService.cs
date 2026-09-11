@@ -13,6 +13,7 @@ namespace SessionManagement.Client.Services
         public event Action<string>?  OnConnectionStatusChanged;
         public event Action<string, int, int>? OnExtensionApproved;
         public event Action<string, int, string>? OnExtensionRejected;
+        public event Action<string, string, string>? OnRemediationCommandReceived;
 
         public bool IsConnected =>
             _connection?.State == HubConnectionState.Connected;
@@ -46,6 +47,12 @@ namespace SessionManagement.Client.Services
             _connection.On<string, int, string>("ExtensionRejected", (requestId, sessionId, reason) =>
             {
                 OnExtensionRejected?.Invoke(requestId, sessionId, reason);
+            });
+
+            // Handle remediation command from server/admin
+            _connection.On<string, string, string>("RemediationCommand", (actionType, targetProcess, reason) =>
+            {
+                OnRemediationCommandReceived?.Invoke(actionType, targetProcess, reason);
             });
 
             // Handle reconnection
